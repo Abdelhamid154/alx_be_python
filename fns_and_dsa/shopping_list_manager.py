@@ -4,7 +4,7 @@ def display_menu():
     """
     Displays the main menu options to the user.
     """
-    print("\n--- Shopping List Manager ---")
+    print("--- Shopping List Manager ---") # Ensure this line matches exactly
     print("1. Add item")
     print("2. Remove item")
     print("3. View list")
@@ -14,7 +14,7 @@ def shopping_list_manager():
     shopping_list = []
 
     while True:
-        display_menu()  # Call the new display_menu function
+        display_menu()  # Call the display_menu function
         choice = input("Enter your choice: ")
 
         if choice == '1':
