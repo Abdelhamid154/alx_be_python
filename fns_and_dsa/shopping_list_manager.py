@@ -4,7 +4,7 @@ def display_menu():
     """
     Displays the main menu options to the user.
     """
-    print("--- Shopping List Manager ---") # Ensure this line matches exactly
+    print("Shopping List Manager") # Ensure this line matches exactly
     print("1. Add item")
     print("2. Remove item")
     print("3. View list")
