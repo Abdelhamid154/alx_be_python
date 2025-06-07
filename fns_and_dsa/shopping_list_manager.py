@@ -1,71 +1,40 @@
-def display_menu():
-    """Displays the shopping list manager menu options"""
-    print("\nShopping List Manager")
-    print("1. Add Item")
-    print("2. Remove Item")
-    print("3. View List")
-    print("4. Exit")
+# shopping_list_manager.py
 
-def get_numeric_choice(prompt, min_val, max_val):
-    """Gets and validates numeric input from user"""
+def shopping_list_manager():
+    shopping_list = []
+
     while True:
-        choice = input(prompt)
-        if choice.isdigit():
-            num = int(choice)
-            if min_val <= num <= max_val:
-                return num
-        print(f"Invalid input. Please enter a number between {min_val} and {max_val}.")
+        print("\n--- Shopping List Manager ---")
+        print("1. Add item")
+        print("2. Remove item")
+        print("3. View list")
+        print("4. Exit")
 
-def main():
-    """Main function to manage the shopping list"""
-    shopping_list = []  # Initialize empty shopping list array
-    
-    while True:
-        display_menu()  # Call the menu display function
-        
-        # Get validated numeric choice
-        choice = get_numeric_choice("Enter your choice (1-4): ", 1, 4)
+        choice = input("Enter your choice: ")
 
-        if choice == 1:
-            # Add item
-            item = input("Enter the item to add: ").strip()
-            if item:
-                shopping_list.append(item)
-                print(f"'{item}' added to shopping list.")
+        if choice == '1':
+            item = input("Enter the item to add: ")
+            shopping_list.append(item)
+            print(f"'{item}' added to the list.")
+        elif choice == '2':
+            item = input("Enter the item to remove: ")
+            if item in shopping_list:
+                shopping_list.remove(item)
+                print(f"'{item}' removed from the list.")
             else:
-                print("Item name cannot be empty.")
-                
-        elif choice == 2:
-            # Remove item
-            if not shopping_list:
-                print("Shopping list is empty.")
-                continue
-                
-            print("Current items:")
-            for i, item in enumerate(shopping_list, 1):
-                print(f"{i}. {item}")
-                
-            item_num = get_numeric_choice(
-                "Enter item number to remove (0 to cancel): ",
-                0, len(shopping_list)
-            )
-            
-            if item_num > 0:
-                removed = shopping_list.pop(item_num-1)
-                print(f"Removed '{removed}' from shopping list.")
-                
-        elif choice == 3:
-            # View list
+                print(f"'{item}' not found in the list.")
+        elif choice == '3':
             if shopping_list:
-                print("\nCurrent Shopping List:")
+                print("\n--- Your Shopping List ---")
                 for i, item in enumerate(shopping_list, 1):
                     print(f"{i}. {item}")
             else:
                 print("Your shopping list is empty.")
-                
-        elif choice == 4:
-            print("Goodbye!")
+        elif choice == '4':
+            print("Exiting Shopping List Manager. Goodbye!")
             break
+        else:
+            print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
-    main()
+    shopping_list_manager()
