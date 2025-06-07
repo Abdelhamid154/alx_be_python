@@ -1,3 +1,5 @@
+# shopping_list_manager.py
+
 def display_menu():
     print("\nShopping List Manager")
     print("1. Add item")
@@ -11,7 +13,7 @@ def add_item(shopping_list):
         shopping_list.append(item)
         print(f"{item} added.")
     else:
-        print("No item entered.")
+        print("Item name cannot be empty.")
 
 def remove_item(shopping_list):
     item = input("Enter item to remove: ").strip()
@@ -22,12 +24,12 @@ def remove_item(shopping_list):
         print(f"{item} not found in the list.")
 
 def view_list(shopping_list):
-    if shopping_list:
-        print("\nCurrent Shopping List:")
-        for i, item in enumerate(shopping_list, 1):
-            print(f"{i}. {item}")
+    if not shopping_list:
+        print("Your shopping list is empty.")
     else:
-        print("\nShopping list is empty.")
+        print("Your Shopping List:")
+        for i, item in enumerate(shopping_list, start=1):
+            print(f"{i}. {item}")
 
 def main():
     shopping_list = []
@@ -43,10 +45,10 @@ def main():
         elif choice == "3":
             view_list(shopping_list)
         elif choice == "4":
-            print("Exiting. Goodbye.")
+            print("Exiting...")
             break
         else:
-            print("Invalid choice. Try again.")
+            print("Invalid choice. Please select 1, 2, 3, or 4.")
 
 if __name__ == "__main__":
     main()
