@@ -1,15 +1,20 @@
 # shopping_list_manager.py
 
+def display_menu():
+    """
+    Displays the main menu options to the user.
+    """
+    print("\n--- Shopping List Manager ---")
+    print("1. Add item")
+    print("2. Remove item")
+    print("3. View list")
+    print("4. Exit")
+
 def shopping_list_manager():
     shopping_list = []
 
     while True:
-        print("\n--- Shopping List Manager ---")
-        print("1. Add item")
-        print("2. Remove item")
-        print("3. View list")
-        print("4. Exit")
-
+        display_menu()  # Call the new display_menu function
         choice = input("Enter your choice: ")
 
         if choice == '1':
